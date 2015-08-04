@@ -7,6 +7,6 @@ Displays all the Hawker Centers in Singapore.<br/>
 The page uses these resources:<br/>
 hawkersg.html<br/>
 js\hawkersg.js<br/>
-css\<br/>
-php\<br/>
+css\ <br/>
+php\ <br/>
 php\hawkercenters.csv (contains geocoded list of hawker center names, addresses and lat/lngs)<br/>
