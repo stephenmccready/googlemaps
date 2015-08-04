@@ -7,6 +7,6 @@ Displays all the Hawker Centers in Singapore, using a comma delimited list as a 
 The page uses these resources:<br/>
 hawkersg.html<br/>
 js\hawkersg.js<br/>
-css\ <br/>
-php\ <br/>
+css\map.css <br/>
+php\tbd <br/>
 data\hawkercenters.csv (<i>contains geocoded list of hawker centers in Singapore names, addresses and lat/lngs</i>)<br/>
