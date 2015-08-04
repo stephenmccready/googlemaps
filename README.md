@@ -9,4 +9,4 @@ hawkersg.html<br/>
 js\hawkersg.js<br/>
 css\ <br/>
 php\ <br/>
-php\hawkercenters.csv (contains geocoded list of hawker center names, addresses and lat/lngs)<br/>
+php\hawkercenters.csv (<i>contains geocoded list of hawker center names, addresses and lat/lngs</i>)<br/>
