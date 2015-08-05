@@ -8,5 +8,5 @@ The page uses these resources:<br/>
 hawkersg.html<br/>
 js\hawkersg.js<br/>
 css\map.css <br/>
-php\tbd <br/>
+php\getHawkerSG.php <br/>
 data\hawkercenters.csv (<i>contains geocoded list of hawker centers in Singapore names, addresses and lat/lngs</i>)<br/>
