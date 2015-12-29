@@ -18,13 +18,14 @@ function initialize() {
                         // Create an object containing LatLng and population for each hawker centre.
                         var hawkerMap = {};
                         var mapArray=JSON.parse(this.responseText);
-            //            alert(this.responseText);
-                            
-            //	    document.getElementById("divDebug").innerHTML=this.responseText;
-                            
+                        var searchStr=document.getElementById('txtSearch').value;
+                        document.getElementById('map-list-content').innerHTML='';
+
                         for(var i=1;i<mapArray.length;i++){
-//                        for(var i=11;i<20;i++){
-                                    if (mapArray[i] != false && mapArray[i][0]!="[Name]") {
+                                    var ctrName=mapArray[i][0].toLowerCase();
+                                    if (mapArray[i] != false && mapArray[i][0]!="[Name]"
+                                                && (searchStr=='' || ctrName.includes(searchStr.toLowerCase()) )
+                                    ) {
                                                 hawkerMap[i]={
                                                             id: i,
                                                             name: mapArray[i][0],
@@ -37,33 +38,21 @@ function initialize() {
                         }
             
                         for (var hawkerCntr in hawkerMap) {
-                                    /*         
-                                    var marker1 = new MarkerWithLabel({
-                                                position: hawkerMap[hawkerCntr].center,
-                                                map: map,
-                                                labelContent: hawkerMap[hawkerCntr].id,
-                                                labelAnchor: new google.maps.Point(22, 0),
-                                                labelClass: "labels", // the CSS class for the label
-                                                labelStyle: {opacity: 0.75}
-                                              });
-                                    */
                                     var marker = new google.maps.Marker({
-                                    //            icon:       {path: google.maps.SymbolPath.CIRCLE,scale: 4},
                                                 position:   hawkerMap[hawkerCntr].center,
                                                 map:        map,
-                                                title:      hawkerMap[hawkerCntr].id+'. '+hawkerMap[hawkerCntr].name,
-                                                content:    '<div class="content">'+'<h3>'+hawkerMap[hawkerCntr].id+'. '+hawkerMap[hawkerCntr].name+'</h3>'+
-                                                            hawkerMap[hawkerCntr].address.replace("Singapore","<br />Singapore")+'<br><br>'+
-                                                            hawkerMap[hawkerCntr].lat+','+hawkerMap[hawkerCntr].lng+'</div>'
+                                                title:      hawkerMap[hawkerCntr].name,
+                                                content:    '<div class="content">'+'<h3>'+hawkerMap[hawkerCntr].name+'</h3>'+
+                                                            hawkerMap[hawkerCntr].address.replace("Singapore"," Singapore")+'</div>'
                                     });
-                                    
+                                                
                                     gmarkers.push(marker);
-                                    
-                                    document.getElementById('map-list').innerHTML
-                                                +='<div class="map-list-item">'+hawkerMap[hawkerCntr].id+'. '+'<a href="javascript:sideClick('+(gmarkers.length-1)+')">'
+                                                
+                                    document.getElementById('map-list-content').innerHTML
+                                                +='<div class="map-list-item">'+'<a href="javascript:sideClick('+(gmarkers.length-1)+')">'
                                                 +hawkerMap[hawkerCntr].name+'</a>'
-                                                +'<br>'+hawkerMap[hawkerCntr].address.replace("Singapore","<br />Singapore")+'</div>';
-                        
+                                                +'<br>'+hawkerMap[hawkerCntr].address.replace("Singapore"," Singapore")+'</div>';
+                                    
                                     var infowindow = new google.maps.InfoWindow();
                                     google.maps.event.addListener(marker, 'click', (function(marker) {
                                                 return function() {
