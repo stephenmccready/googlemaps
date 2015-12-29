@@ -10,8 +10,11 @@
     <script src="js/hawkersg.js"></script>
   </head>
   <body>
+    <div id="map-list">
+      Filter: <input type="text" id="txtSearch" name="txtSearch" placeholder="Centre Name" onkeyup="initialize()">
+      <div id="map-list-content"></div>
+    </div>    
     <div id="map-canvas"></div>
-    <div id="map-list"></div>
     <div id="divDebug"></div>
   </body>
 </html>
